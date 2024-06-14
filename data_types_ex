@@ -1,0 +1,964 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "c7a3564d",
+   "metadata": {
+    "papermill": {
+     "duration": 0.009,
+     "end_time": "2024-06-14T10:43:38.031361",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:38.022361",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "**This notebook is an exercise in the [Intro to Programming](https://www.kaggle.com/learn/intro-to-programming) course.  You can reference the tutorial at [this link](https://www.kaggle.com/alexisbcook/data-types).**\n",
+    "\n",
+    "---\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "07df4bf4",
+   "metadata": {
+    "papermill": {
+     "duration": 0.008336,
+     "end_time": "2024-06-14T10:43:38.048680",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:38.040344",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "In the tutorial, you learned about four different data types: floats, integers, strings, and booleans.  In this exercise, you'll experiment with them.\n",
+    "\n",
+    "# Set up the notebook\n",
+    "\n",
+    "Run the next code cell without changes to set up the notebook."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "55a8bb9c",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:38.068088Z",
+     "iopub.status.busy": "2024-06-14T10:43:38.067629Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.170671Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.169425Z"
+    },
+    "papermill": {
+     "duration": 1.116188,
+     "end_time": "2024-06-14T10:43:39.173353",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:38.057165",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Setup complete.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Set up the exercise\n",
+    "from learntools.core import binder\n",
+    "binder.bind(globals())\n",
+    "from learntools.intro_to_programming.ex3 import *\n",
+    "print('Setup complete.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "57100c77",
+   "metadata": {
+    "papermill": {
+     "duration": 0.00841,
+     "end_time": "2024-06-14T10:43:39.191081",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.182671",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# Question 1\n",
+    "\n",
+    "You have seen how to convert a float to an integer with the `int` function.  Try this out yourself by running the code cell below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "1d7be730",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.210679Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.210152Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.217626Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.216252Z"
+    },
+    "papermill": {
+     "duration": 0.020826,
+     "end_time": "2024-06-14T10:43:39.220524",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.199698",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1.0\n",
+      "<class 'float'>\n",
+      "1\n",
+      "<class 'int'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Define a float\n",
+    "y = 1.\n",
+    "print(y)\n",
+    "print(type(y))\n",
+    "\n",
+    "# Convert float to integer with the int function\n",
+    "z = int(y)\n",
+    "print(z)\n",
+    "print(type(z))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b002a0ec",
+   "metadata": {
+    "papermill": {
+     "duration": 0.009645,
+     "end_time": "2024-06-14T10:43:39.239670",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.230025",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "In this case, the float you are using has no numbers after the decimal.  \n",
+    "- But what happens when you try to convert a float with a fractional part to an integer?  \n",
+    "- How does the outcome of the `int` function change for positive and negative numbers?\n",
+    "\n",
+    "Use the next code cell to investigate and answer these questions.  Feel free to add or remove any lines of code -- it is your workspace!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "d9cb3aec",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.260451Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.260054Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.266246Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.265150Z"
+    },
+    "papermill": {
+     "duration": 0.02008,
+     "end_time": "2024-06-14T10:43:39.269390",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.249310",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "1\n",
+      "-3\n",
+      "-2\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Uncomment and run this code to get started!\n",
+    "print(int(1.2321))\n",
+    "print(int(1.747))\n",
+    "print(int(-3.94535))\n",
+    "print(int(-2.19774))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4a2f25dd",
+   "metadata": {
+    "papermill": {
+     "duration": 0.009634,
+     "end_time": "2024-06-14T10:43:39.288375",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.278741",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Once you have an answer, run the code cell below to see the solution.  Viewing the solution will give you credit for answering the problem."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "c60d8431",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.308731Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.308364Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.320119Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.318508Z"
+    },
+    "papermill": {
+     "duration": 0.02618,
+     "end_time": "2024-06-14T10:43:39.323999",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.297819",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/javascript": [
+       "parent.postMessage({\"jupyterEvent\": \"custom.exercise_interaction\", \"data\": {\"outcomeType\": 1, \"valueTowardsCompletion\": 0.2, \"interactionType\": 1, \"questionType\": 4, \"questionId\": \"1_FloatToInt\", \"learnToolsVersion\": \"0.3.4\", \"failureMessage\": \"\", \"exceptionClass\": \"\", \"trace\": \"\"}}, \"*\")"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Javascript object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/markdown": [
+       "<span style=\"color:#33cc33\">Correct:</span> \n",
+       "\n",
+       "Negative floats are always rounded UP to the closest integer (for instance, both -1.1 and -1.9 are rounded up to -1). Positive floats are always rounded DOWN to the closest integer (for instance, 2.1 and 2.9 are rounded down to 2)."
+      ],
+      "text/plain": [
+       "Correct: \n",
+       "\n",
+       "Negative floats are always rounded UP to the closest integer (for instance, both -1.1 and -1.9 are rounded up to -1). Positive floats are always rounded DOWN to the closest integer (for instance, 2.1 and 2.9 are rounded down to 2)."
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# Check your answer (Run this code cell to receive credit!)\n",
+    "q1.check()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e45b670e",
+   "metadata": {
+    "papermill": {
+     "duration": 0.009692,
+     "end_time": "2024-06-14T10:43:39.343227",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.333535",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# Question 2\n",
+    "\n",
+    "In the tutorial, you learned about booleans (which can take a value of `True` or `False`), in addition to integers, floats, and strings.  For this question, your goal is to determine what happens when you multiply a boolean by any of these data types.  Specifically, \n",
+    "- What happens when you multiply an integer or float by `True`?  What happens when you multiply them by `False`?  How does the answer change if the numbers are positive or negative?\n",
+    "- What happens when you multiply a string by `True`?  By `False`?\n",
+    "\n",
+    "Use the next code cell for your investigation. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "526917eb",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.363954Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.363546Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.369992Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.368724Z"
+    },
+    "papermill": {
+     "duration": 0.020699,
+     "end_time": "2024-06-14T10:43:39.373367",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.352668",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "-3.1\n",
+      "<class 'str'>\n",
+      "0\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Uncomment and run this code to get started!\n",
+    "print(3 * True)\n",
+    "print(-3.1 * True)\n",
+    "print(type(\"abc\" * False))\n",
+    "print(len(\"abc\" * False))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f2fe0db1",
+   "metadata": {
+    "papermill": {
+     "duration": 0.009434,
+     "end_time": "2024-06-14T10:43:39.392394",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.382960",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Once you have an answer, run the code cell below to see the solution.  Viewing the solution will give you credit for answering the problem."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "ea9598e5",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.413654Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.413091Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.423293Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.422141Z"
+    },
+    "papermill": {
+     "duration": 0.023804,
+     "end_time": "2024-06-14T10:43:39.426101",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.402297",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/javascript": [
+       "parent.postMessage({\"jupyterEvent\": \"custom.exercise_interaction\", \"data\": {\"outcomeType\": 1, \"valueTowardsCompletion\": 0.2, \"interactionType\": 1, \"questionType\": 4, \"questionId\": \"2_MultiplyBooleans\", \"learnToolsVersion\": \"0.3.4\", \"failureMessage\": \"\", \"exceptionClass\": \"\", \"trace\": \"\"}}, \"*\")"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Javascript object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/markdown": [
+       "<span style=\"color:#33cc33\">Correct:</span> \n",
+       "\n",
+       "When you multiple an integer or float by a boolean with value `True`, it just returns that same integer or float (and is equivalent to multiplying by 1).  If you multiply an integer or float by a boolean with value `False`, it always returns 0.  This is true for both positive and negative numbers.  If you multiply a string by a boolean with value `True`, it just returns that same string.  And if you multiply a string by a boolean with value `False`, it returns an empty string (or a string with length zero)."
+      ],
+      "text/plain": [
+       "Correct: \n",
+       "\n",
+       "When you multiple an integer or float by a boolean with value `True`, it just returns that same integer or float (and is equivalent to multiplying by 1).  If you multiply an integer or float by a boolean with value `False`, it always returns 0.  This is true for both positive and negative numbers.  If you multiply a string by a boolean with value `True`, it just returns that same string.  And if you multiply a string by a boolean with value `False`, it returns an empty string (or a string with length zero)."
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# Check your answer (Run this code cell to receive credit!)\n",
+    "q2.check()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "40c46f3c",
+   "metadata": {
+    "papermill": {
+     "duration": 0.009516,
+     "end_time": "2024-06-14T10:43:39.446541",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.437025",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# Question 3\n",
+    "\n",
+    "In this question, you will build off your work from the previous exercise to write a function that estimates the value of a house.\n",
+    "\n",
+    "Use the next code cell to create a function `get_expected_cost` that takes as input three variables:\n",
+    "- `beds` - number of bedrooms (data type float)\n",
+    "- `baths` - number of bathrooms (data type float)\n",
+    "- `has_basement` - whether or not the house has a basement (data type boolean)\n",
+    "\n",
+    "It should return the expected cost of a house with those characteristics. Assume that:\n",
+    "- the expected cost for a house with 0 bedrooms and 0 bathrooms, and no basement is 80000, \n",
+    "- each bedroom adds 30000 to the expected cost,\n",
+    "- each bathroom adds 10000 to the expected cost, and\n",
+    "- a basement adds 40000 to the expected cost.\n",
+    "\n",
+    "For instance,\n",
+    "- a house with 1 bedroom, 1 bathroom, and no basement has an expected cost of 80000 + 30000 + 10000 = 120000.  This value will be calculated with `get_expected_cost(1, 1, False)`.\n",
+    "- a house with 2 bedrooms, 1 bathroom, and a basement has an expected cost of 80000 + 2*30000 + 10000 + 40000 = 190000.  This value will be calculated with `get_expected_cost(2, 1, True)`.\n",
+    "\n",
+    "Remember you can always get a hint by uncommenting `q3.hint()` in the code cell following the next!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "66045e5e",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.467813Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.467392Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.478099Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.476952Z"
+    },
+    "papermill": {
+     "duration": 0.024368,
+     "end_time": "2024-06-14T10:43:39.480682",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.456314",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/javascript": [
+       "parent.postMessage({\"jupyterEvent\": \"custom.exercise_interaction\", \"data\": {\"outcomeType\": 1, \"valueTowardsCompletion\": 0.2, \"interactionType\": 1, \"questionType\": 2, \"questionId\": \"3_EstimateHouseValueBool\", \"learnToolsVersion\": \"0.3.4\", \"failureMessage\": \"\", \"exceptionClass\": \"\", \"trace\": \"\"}}, \"*\")"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Javascript object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/markdown": [
+       "<span style=\"color:#33cc33\">Correct</span>"
+      ],
+      "text/plain": [
+       "Correct"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# TODO: Complete the function\n",
+    "def get_expected_cost(beds, baths, has_basement):\n",
+    "    value = 80000 + (beds * 30000) + (baths * 10000) + (has_basement * 40000)\n",
+    "    return value\n",
+    "\n",
+    "# Check your answer \n",
+    "q3.check()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "c61adc8c",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.504491Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.504049Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.510096Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.508356Z"
+    },
+    "papermill": {
+     "duration": 0.021512,
+     "end_time": "2024-06-14T10:43:39.512982",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.491470",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# Uncomment to see a hint\n",
+    "#q3.hint()\n",
+    "\n",
+    "# Uncomment to view the solution\n",
+    "#q3.solution()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5178862a",
+   "metadata": {
+    "papermill": {
+     "duration": 0.010721,
+     "end_time": "2024-06-14T10:43:39.534189",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.523468",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# Question 4\n",
+    "\n",
+    "We'll continue our study of boolean arithmetic.  For this question, your task is to provide a description of what happpens when you add booleans. \n",
+    "\n",
+    "Use the next code cell for your investigation.  Feel free to add or remove any lines of code - use it as your workspace!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "8b83d87b",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.556784Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.556367Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.563490Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.562212Z"
+    },
+    "papermill": {
+     "duration": 0.021931,
+     "end_time": "2024-06-14T10:43:39.566606",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.544675",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "1\n",
+      "2\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(False + False)\n",
+    "print(True + False)\n",
+    "print(False + True)\n",
+    "print(True + True)\n",
+    "print(False + True + True + True)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "334e564e",
+   "metadata": {
+    "papermill": {
+     "duration": 0.009929,
+     "end_time": "2024-06-14T10:43:39.586939",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.577010",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Once you have an answer, run the code cell below to see the solution.  Viewing the solution will give you credit for answering the problem."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "21cb3183",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.609257Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.608849Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.619136Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.617988Z"
+    },
+    "papermill": {
+     "duration": 0.024957,
+     "end_time": "2024-06-14T10:43:39.622287",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.597330",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/javascript": [
+       "parent.postMessage({\"jupyterEvent\": \"custom.exercise_interaction\", \"data\": {\"outcomeType\": 1, \"valueTowardsCompletion\": 0.2, \"interactionType\": 1, \"questionType\": 4, \"questionId\": \"4_AddingBooleans\", \"learnToolsVersion\": \"0.3.4\", \"failureMessage\": \"\", \"exceptionClass\": \"\", \"trace\": \"\"}}, \"*\")"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Javascript object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/markdown": [
+       "<span style=\"color:#33cc33\">Correct:</span> \n",
+       "\n",
+       "When you add booleans, adding `False` is equivalent to adding 0, and adding `True` is equivalent to adding 1."
+      ],
+      "text/plain": [
+       "Correct: \n",
+       "\n",
+       "When you add booleans, adding `False` is equivalent to adding 0, and adding `True` is equivalent to adding 1."
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# Check your answer (Run this code cell to receive credit!)\n",
+    "q4.check()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e4714ad9",
+   "metadata": {
+    "papermill": {
+     "duration": 0.012088,
+     "end_time": "2024-06-14T10:43:39.645385",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.633297",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# 🌶️ Question 5\n",
+    "\n",
+    "You own an online shop where you sell rings with custom engravings.  You offer both gold plated and solid gold rings.\n",
+    "- Gold plated rings have a base cost of \\\\$50, and you charge \\\\$7 per engraved unit.  \n",
+    "- Solid gold rings have a base cost of \\\\$100, and you charge \\\\$10 per engraved unit.\n",
+    "- Spaces and punctuation are counted as engraved units.\n",
+    "\n",
+    "Write a function `cost_of_project()` that takes two arguments:\n",
+    "- `engraving` - a Python string with the text of the engraving\n",
+    "- `solid_gold` - a Boolean that indicates whether the ring is solid gold\n",
+    "\n",
+    "It should return the cost of the project.  This question should be fairly challenging, and you may need a hint."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "704019d8",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.668659Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.668251Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.678505Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.677345Z"
+    },
+    "papermill": {
+     "duration": 0.024859,
+     "end_time": "2024-06-14T10:43:39.681313",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.656454",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/javascript": [
+       "parent.postMessage({\"jupyterEvent\": \"custom.exercise_interaction\", \"data\": {\"outcomeType\": 1, \"valueTowardsCompletion\": 0.2, \"interactionType\": 1, \"questionType\": 2, \"questionId\": \"5_CustomEngravings\", \"learnToolsVersion\": \"0.3.4\", \"failureMessage\": \"\", \"exceptionClass\": \"\", \"trace\": \"\"}}, \"*\")"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Javascript object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/markdown": [
+       "<span style=\"color:#33cc33\">Correct</span>"
+      ],
+      "text/plain": [
+       "Correct"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "def cost_of_project(engraving, solid_gold):\n",
+    "    engraving_len = len(engraving)\n",
+    "    cost = 50 + (solid_gold * 50) + (engraving_len * 7) + (engraving_len * solid_gold * 3)\n",
+    "    return cost\n",
+    "\n",
+    "# Check your answer\n",
+    "q5.check()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "a0ff056d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.705055Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.704564Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.709461Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.708400Z"
+    },
+    "papermill": {
+     "duration": 0.019787,
+     "end_time": "2024-06-14T10:43:39.712074",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.692287",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# Uncomment to see a hint\n",
+    "#q5.hint()\n",
+    "\n",
+    "# Uncomment to view the solution\n",
+    "#q5.solution()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9f3befca",
+   "metadata": {
+    "papermill": {
+     "duration": 0.010469,
+     "end_time": "2024-06-14T10:43:39.733409",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.722940",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Run the next code cell to calculate the cost of engraving `Charlie+Denver` on a solid gold ring."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "3da90dd1",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.757365Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.756351Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.762374Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.761254Z"
+    },
+    "papermill": {
+     "duration": 0.020938,
+     "end_time": "2024-06-14T10:43:39.765219",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.744281",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "240\n"
+     ]
+    }
+   ],
+   "source": [
+    "project_one = cost_of_project(\"Charlie+Denver\", True)\n",
+    "print(project_one)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0efcf9bb",
+   "metadata": {
+    "papermill": {
+     "duration": 0.010926,
+     "end_time": "2024-06-14T10:43:39.787113",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.776187",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Use the next code cell to calculate the cost of engraving `08/10/2000` on a gold plated ring."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "f690da98",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2024-06-14T10:43:39.811101Z",
+     "iopub.status.busy": "2024-06-14T10:43:39.810497Z",
+     "iopub.status.idle": "2024-06-14T10:43:39.817401Z",
+     "shell.execute_reply": "2024-06-14T10:43:39.816053Z"
+    },
+    "papermill": {
+     "duration": 0.022123,
+     "end_time": "2024-06-14T10:43:39.820158",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.798035",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "120\n"
+     ]
+    }
+   ],
+   "source": [
+    "project_two = cost_of_project(\"08/10/2000\", False)\n",
+    "print(project_two)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d49554ca",
+   "metadata": {
+    "papermill": {
+     "duration": 0.010676,
+     "end_time": "2024-06-14T10:43:39.841913",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.831237",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "# Keep going\n",
+    "\n",
+    "Continue to the next lesson to **[learn about conditions and conditional statements](https://www.kaggle.com/alexisbcook/conditions-and-conditional-statements)**."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "38b3963a",
+   "metadata": {
+    "papermill": {
+     "duration": 0.010607,
+     "end_time": "2024-06-14T10:43:39.863717",
+     "exception": false,
+     "start_time": "2024-06-14T10:43:39.853110",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "---\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "*Have questions or comments? Visit the [course discussion forum](https://www.kaggle.com/learn/intro-to-programming/discussion) to chat with other learners.*"
+   ]
+  }
+ ],
+ "metadata": {
+  "kaggle": {
+   "accelerator": "none",
+   "dataSources": [],
+   "isGpuEnabled": false,
+   "isInternetEnabled": false,
+   "language": "python",
+   "sourceType": "notebook"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.13"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 5.626455,
+   "end_time": "2024-06-14T10:43:40.398017",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "__notebook__.ipynb",
+   "output_path": "__notebook__.ipynb",
+   "parameters": {},
+   "start_time": "2024-06-14T10:43:34.771562",
+   "version": "2.3.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
